@@ -1,0 +1,38 @@
+.c-accordion {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.c-accordion__item {
+  margin-bottom: 3%;
+}
+
+.c-accordion__check {
+  display: none;
+}
+
+.c-accordion__title {
+  display: block;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.c-accordion__content {
+  border: 1px solid #333;
+  height: 0;
+  padding: 0 10px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: height 0.3s ease, opacity 0.3s ease;
+}
+
+/* open state */
+.c-accordion__check:checked + .c-accordion__title + .c-accordion__content {
+  height: 40px;
+  padding: 10px;
+  opacity: 1;
+  visibility: visible;
+}/*# sourceMappingURL=style.css.map */
