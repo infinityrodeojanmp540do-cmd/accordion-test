@@ -7,53 +7,66 @@
           <title>accordion</title>
           <meta name="viewport" content="width=device-width, initial-scale=1">
           <link rel="stylesheet" href="css/scss/style.css">
+          <script src="js/accordion.js" defer></script>
 </head>
 
 <body>
           <div class="c-accordion">
-                    <details class="c-accordion__item">
+                    <div class="c-accordion__item">
 
-                              <summary class="c-accordion__title">
+                              <button type="button" class="c-accordion__title" aria-expanded="false"
+                                        aria-controls="accordion-content-1" id="accordion-title-1">
                                         クリックで開く1
-                              </summary>
+                              </button>
 
-                              <div class="c-accordion__content">
+                              <div class="c-accordion__content" id="accordion-content-1" role="region"
+                                        aria-labelledby="accordion-title-1">
                                         <p>hello.world!</p>
                               </div>
-                    </details>
 
-                    <details class="c-accordion__item">
+                    </div>
 
-                              <summary class="c-accordion__title">
+                    <div class="c-accordion__item">
+
+                              <button type="button" class="c-accordion__title" aria-expanded="false"
+                                        aria-controls="accordion-content-1" id="accordion-title-2">
                                         クリックで開く2
-                              </summary>
+                              </button>
 
-                              <div class="c-accordion__content">
-                                        <p>hello.world2!</p>
+                              <div class="c-accordion__content" id="accordion-content-2" role="region"
+                                        aria-labelledby="accordion-title-1">
+                                        <p>hello.world!</p>
                               </div>
-                    </details>
 
-                    <details class="c-accordion__item">
+                    </div>
 
-                              <summary class="c-accordion__title">
+                    <div class="c-accordion__item">
+
+                              <button type="button" class="c-accordion__title" aria-expanded="false"
+                                        aria-controls="accordion-content-1" id="accordion-title-3">
                                         クリックで開く3
-                              </summary>
+                              </button>
 
-                              <div class="c-accordion__content">
-                                        <p>hello.world3!</p>
+                              <div class="c-accordion__content" id="accordion-content-3" role="region"
+                                        aria-labelledby="accordion-title-1">
+                                        <p>hello.world!</p>
                               </div>
-                    </details>
 
-                    <details class="c-accordion__item">
+                    </div>
 
-                              <summary class="c-accordion__title">
+                    <div class="c-accordion__item">
+
+                              <button type="button" class="c-accordion__title" aria-expanded="false"
+                                        aria-controls="accordion-content-1" id="accordion-title-4">
                                         クリックで開く4
-                              </summary>
+                              </button>
 
-                              <div class="c-accordion__content">
-                                        <p>hello.world4!</p>
+                              <div class="c-accordion__content" id="accordion-content-4" role="region"
+                                        aria-labelledby="accordion-title-1">
+                                        <p>hello.world!</p>
                               </div>
-                    </details>
+
+                    </div>
           </div>
 </body>
 
