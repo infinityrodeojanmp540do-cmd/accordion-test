@@ -15,11 +15,10 @@ html {
   height: 0;
   overflow: hidden;
   transition: height 0.3s ease, opacity 0.2s ease;
+  opacity: 0;
 }
 
 .c-accordion__item.is-open .c-accordion__content {
-  height: auto;
-  height: calc-size(auto, size);
   opacity: 1;
 }
 
