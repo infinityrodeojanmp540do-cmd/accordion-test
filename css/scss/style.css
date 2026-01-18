@@ -1,30 +1,27 @@
-html {
-  interpolate-size: allow-keywords;
+.c-accordion {
+  width: 80%;
+  margin: 0 auto;
 }
 
 .c-accordion__title {
-  width: 100%;
-  margin: 0 auto;
-  display: block;
+  padding: 12px;
+  background: #333;
+  color: #fff;
+  cursor: pointer;
+  list-style: none;
 }
 
 .c-accordion__content {
-  text-align: center;
-  height: 0;
   overflow: hidden;
-  transition: height 0.3s ease, opacity 0.2s ease;
   opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
-.c-accordion__item.is-open .c-accordion__content {
+.c-accordion__item[open] .c-accordion__content {
   opacity: 1;
 }
 
 .c-accordion__item {
+  text-align: center;
   margin-bottom: 3%;
-  border-bottom: 1px solid transparent;
-}
-
-.c-accordion__item.is-open {
-  border-bottom-color: #888383;
 }/*# sourceMappingURL=style.css.map */
