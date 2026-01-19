@@ -15,26 +15,20 @@
 }
 
 .c-accordion__content {
-  max-height: 0;
+  height: 0;
   overflow: hidden;
-  transition: max-height 0.5s ease-out;
+  transition: height 0.5s ease-out;
 }
 
 .c-accordion[open] .c-accordion__content {
   border-bottom: solid 1px gray;
-  max-height: 100px;
-}
-
-
-/* 1. 文書全体でキーワード（autoなど）へのアニメーションを許可 */
-:root {
-  interpolate-size: allow-keywords;
+  height: 100px;
 }
 
 /* 2. details内のコンテンツ部分をターゲットにする */
 details::details-content {
   /* 開閉アニメーションの設定 */
-  transition: block-size 0.3s ease-out, content-visibility 0.3s ease-out;
+  transition: block-size 0.5s ease-out, content-visibility 0.5s ease-out;
   transition-behavior: allow-discrete; /* 不連続な値の変化を許容 */
   overflow: hidden;
 }
