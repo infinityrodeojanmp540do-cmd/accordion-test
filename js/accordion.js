@@ -1,27 +1,66 @@
-
 document.querySelectorAll('.js-accordion').forEach((item) => {
   const trigger = item.querySelector('.js-accordion-trigger');
   const content = item.querySelector('.js-accordion-content');
+  const DURATION = 300; // CSSのtransition時間(ms)
 
-  trigger.addEventListener('click', () => {
-    // コンテンツが開いているかどうかの判定
-    const isOpened = item.classList.toggle('is-opened');
-    
-    if (isOpened) {
-      // --- 開く時の処理 ---
-      // 実際の高さを取得する
-      const height = content.scrollHeight;
-      // heightを0から数値に設定
-      content.style.height = height + 'px';
-    } else {
-      // --- 閉じる時の処理 ---
-      // 高さを0に戻す
-      content.style.height = content.scrollHeight + 'px'; // ★ 現在値を確定
+  trigger.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const isOpened = item.open;
+
+    if (!isOpened) {
+      /* ======================
+         開く
+         0px → px → auto
+      ====================== */
+
+      item.open = true;
+      content.style.height = '0px';
 
       requestAnimationFrame(() => {
-        content.style.height = '0px'; // ★ 差分ができるので transition 発火
-      });    }
+        const height = content.scrollHeight;
+        content.style.height = height + 'px';
+
+        let done = false;
+
+        const finish = () => {
+          if (done) return;
+          done = true;
+          content.style.height = 'auto';
+        };
+
+        content.addEventListener('transitionend', finish, { once: true });
+
+        // transitionend が来なかった場合の保険
+        setTimeout(finish, DURATION + 50);
+      });
+
+    } else {
+      /* ======================
+         閉じる
+         auto → px → 0px
+      ====================== */
+
+      const height = content.scrollHeight;
+      content.style.height = height + 'px';
+
+      // レイアウト確定
+      content.offsetHeight;
+
+      content.style.height = '0px';
+
+      let done = false;
+
+      const finish = () => {
+        if (done) return;
+        done = true;
+        item.open = false;
+      };
+
+      content.addEventListener('transitionend', finish, { once: true });
+
+      // transitionend が来なかった場合の保険
+      setTimeout(finish, DURATION + 50);
+    }
   });
-
-
 });
