@@ -1,6 +1,8 @@
+@charset "UTF-8";
 .c-accordion {
   width: 80%;
   margin: 0 auto;
+  text-align: center;
 }
 
 .c-accordion__title {
@@ -12,16 +14,24 @@
 }
 
 .c-accordion__content {
+  height: 0;
   overflow: hidden;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  transition: height 0.3s ease-out;
 }
 
-.c-accordion__item[open] .c-accordion__content {
-  opacity: 1;
+.c-accordion[open] .c-accordion__content {
+  border-bottom: solid 1px gray;
 }
 
-.c-accordion__item {
-  text-align: center;
-  margin-bottom: 3%;
+/* 2. details内のコンテンツ部分をターゲットにする */
+details::details-content {
+  /* 開閉アニメーションの設定 */
+  transition: block-size 0.5s ease-out, content-visibility 0.5s ease-out;
+  transition-behavior: allow-discrete; /* 不連続な値の変化を許容 */
+  overflow: hidden;
+}
+
+/* 3. 閉じている時の高さを0にする */
+details:not([open])::details-content {
+  block-size: 0;
 }/*# sourceMappingURL=style.css.map */
